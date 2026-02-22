@@ -1,0 +1,46 @@
+name: Deploy Meditation Timer to GitHub Pages
+
+on:
+  push:
+    branches:
+      - 'claude/meditation-timer-app-xpJez'
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: meditation-timer/package-lock.json
+
+      - name: Install dependencies
+        working-directory: meditation-timer
+        run: npm ci --legacy-peer-deps
+
+      - name: Build
+        working-directory: meditation-timer
+        run: npm run build
+        env:
+          VITE_BASE: /papayai/meditation-timer/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: meditation-timer/dist
+          destination_dir: meditation-timer
+          enable_jekyll: false
