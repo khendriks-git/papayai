@@ -1,0 +1,74 @@
+/* ============================================
+   ZEN MEDITATION TIMER — Global Styles
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  /* Color palette — warm, earthy, zen */
+  --bg:           #F5F2EC;
+  --bg-card:      #FDFBF7;
+  --bg-subtle:    #EDEAE2;
+  --text:         #2A2520;
+  --text-muted:   #7A7268;
+  --text-light:   #A89F93;
+  --accent:       #8B7355;
+  --accent-light: #C4A882;
+  --accent-warm:  #9E6B4A;
+  --ring-bg:      #DDD8CE;
+  --border:       #E0DAD0;
+  --map-land:     #D4CEBF;
+  --map-border:   #F5F2EC;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color-scheme: light;
+  color: var(--text);
+  background-color: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+input {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
